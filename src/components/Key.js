@@ -3,7 +3,8 @@
 import React, { useContext } from "react";
 import { AppContext } from "../App";
 
-const Key = ({ keyVal, bigKey }) => {
+const Key = ({ keyVal, bigKey, disabled }) => {
+  // disabled is bool when we need to disable the letters of no use on keyboard
   const {
     // board,
     // setBoard,
@@ -27,7 +28,7 @@ const Key = ({ keyVal, bigKey }) => {
   };
   return (
     // have to put some conditional logic for CSS of Enter and delete key in keyboard
-    <div className="key" id={bigKey && "big"} onClick={selectLetter}>
+    <div className="key" id={bigKey ? "big": disabled && "disabled"} onClick={selectLetter}>
       {keyVal}
     </div>
   );
